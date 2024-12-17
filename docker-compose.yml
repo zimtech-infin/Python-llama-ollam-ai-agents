@@ -1,0 +1,30 @@
+services:
+  ollama-llamaindex-container:
+    image: python:3.11-slim
+    container_name: ollama-llamaindex-container
+    ports:
+      - "11434:11434"  # Ollama API Port
+      - "8000:8000"    # LlamaIndex API for Uvicorn
+    volumes:
+      - ollama-models:/root/.ollama/models
+    environment:
+      - OLLAMA_MODELS=/root/.ollama/models
+      - OLLAMA_HOST=0.0.0.0:11434
+    command: >
+      bash -c "
+      apt-get update &&
+      apt-get install -y curl git &&
+      curl -fsSL https://ollama.com/install.sh | sh &&
+      python -m pip install --no-cache-dir --upgrade pip &&
+      python -m pip install llama-index flask uvicorn fastapi pydantic requests &&
+      export PATH=/root/.local/bin:$PATH &&
+      ollama pull llama2 &&
+      ollama pull codellama &&
+      ollama serve --host 0.0.0.0 --port 11434 &
+      sleep 10 &&
+      python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+      "
+
+volumes:
+  ollama-models:
+    driver: local
