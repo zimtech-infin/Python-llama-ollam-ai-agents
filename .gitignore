@@ -1,0 +1,64 @@
+# Python-related ignores
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual Environment
+env/
+venv/
+*.env
+pip-log.txt
+
+# Unit Test Reports
+.coverage
+*.cover
+htmlcov/
+pytest_cache/
+nosetests.xml
+coverage.xml
+*.pytest_cache
+
+# IDEs/Editors
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+*.tmp
+
+# Docker
+docker-compose.override.yml
+*.dockerignore
+*.env
+
+# Cache and Artifacts
+*.bak
+*.swp
+*.lock
+*.cache
+
+# Ignore model weights
+models/
+*.onnx
+*.pt
+*.h5
+
+# Ignore large data files
+data/
+*.jsonl
+*.csv
+*.txt
+
+# Ignore compiled Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Mac OS
+.DS_Store
+._*

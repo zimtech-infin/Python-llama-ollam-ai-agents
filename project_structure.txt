@@ -1,0 +1,38 @@
+ai_system_business_model/
+├── README.md
+├── docker-compose.yml
+├── .gitignore
+├── manager_agent/
+│   ├── manager.py
+│   ├── __init__.py
+│   ├── tests/
+│   │   ├── test_manager.py
+│   └── utils/
+│       └── logger.py
+├── sub_agents/
+│   ├── process_verifier/
+│   │   ├── verifier.py
+│   │   ├── __init__.py
+│   │   └── tests/
+│   │       └── test_verifier.py
+│   ├── parser/
+│   │   ├── parser.py
+│   │   ├── __init__.py
+│   │   └── tests/
+│   │       └── test_parser.py
+├── task_workers/
+│   ├── tokenizer_worker.py
+│   ├── chunking_worker.py
+│   ├── query_validator.py
+│   ├── quality_checker.py
+├── services/
+│   ├── ollama_service/
+│   │   ├── Dockerfile
+│   │   ├── inference.py
+│   │   └── requirements.txt
+│   └── llama_index_service/
+│       ├── Dockerfile
+│       ├── retrieval.py
+│       └── requirements.txt
+└── tests/
+    └── integration_tests.py
